@@ -1,0 +1,3 @@
+
+.. automodule:: magi.version
+   :members:
