@@ -4,19 +4,20 @@
 """
 from flask import Flask, render_template
 
+from . import main
 from .db import setup_session
 
 
-app = Flask(__name__)
+def create_app(config):
+    """The application factory.
 
-setup_session(app)
+    :param config: The instance relative configuration file to use.
+    :returns: A Magi Flask app.
+    :rtype: :class:`flask.Flask`
 
-
-@app.route('/')
-def home():
-    """Home."""
-    return render_template('home.html')
-
-
-if __name__=="__main__":
-    app.run(debug=True)
+    """
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_pyfile(config)
+    setup_session(app)
+    app.register_blueprint(main.bp)
+    return app
