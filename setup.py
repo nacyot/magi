@@ -9,7 +9,8 @@ def readme():
 
 
 install_requires = [
-    'Flask'
+    'Flask',
+    'SQLAlchemy'
 ]
 
 
