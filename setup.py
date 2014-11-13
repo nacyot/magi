@@ -16,7 +16,7 @@ setup(
     url='https://github.com/smartstudy/magi',
     author='Jihyeok Seo',
     author_email='me@limeburst.net',
-    license='AGPLv3 or later',
+    license='MIT',
     zip_safe=False,
     packages=['magi', 'magi.web'],
     package_data={
@@ -34,8 +34,7 @@ setup(
         'Development Status :: 1 - Planning',
         'Environment :: Web Environment',
         'Intended Audience :: System Administrators',
-        'License :: OSI Approved '
-        ':: GNU Affero General Public License v3 or later (AGPLv3+)',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: POSIX',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
