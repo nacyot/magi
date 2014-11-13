@@ -4,3 +4,4 @@
 .idea
 docs/_build
 instance
+magi/web/static/lib
