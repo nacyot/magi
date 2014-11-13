@@ -1,33 +1,33 @@
-from setuptools import setup, find_packages
+"""
+Magi
+====
 
-from magi.version import VERSION
+Networked resource monitoring tool.
 
-
-def readme():
-    with open('README.rst') as f:
-        return f.read()
-
-
-install_requires = [
-    'Flask',
-    'SQLAlchemy',
-    'click'
-]
+"""
+from setuptools import setup
 
 
 setup(
     name='Magi',
-    version=VERSION,
+    version='dev',
     description='Networked resource monitoring tool',
-    long_description=readme(),
-    url='https://github.com/limeburst/magi',
+    long_description=__doc__,
+    url='https://github.com/smartstudy/magi',
     author='Jihyeok Seo',
     author_email='me@limeburst.net',
     license='AGPLv3 or later',
-    packages=find_packages(),
-    install_requires=install_requires,
+    packages=['magi', 'magi.web'],
+    package_data={
+        'magi.web': ['templates/*.*', 'static/*.*']
+    },
+    install_requires=[
+        'Flask',
+        'SQLAlchemy',
+        'click'
+    ],
     entry_points={
-        'console_scripts': ['magi = magi.cli:cli'],
+        'console_scripts': ['magi = magi.cli:cli']
     },
     classifiers=[
         'Development Status :: 1 - Planning',
