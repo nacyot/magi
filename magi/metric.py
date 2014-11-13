@@ -1,5 +1,5 @@
-""":mod:`magi.models.metric` --- Models about logging metrics
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+""":mod:`magi.metric` --- Metrics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 """
 import uuid
@@ -8,7 +8,7 @@ from sqlalchemy import types
 from sqlalchemy.dialects import postgresql
 from sqlalchemy.schema import Column, ForeignKey, ForeignKeyConstraint
 
-from ..orm import Base
+from .orm import Base
 
 
 CASCADE = 'CASCADE'

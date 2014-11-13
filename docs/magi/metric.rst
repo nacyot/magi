@@ -1,0 +1,3 @@
+
+.. automodule:: magi.metric
+   :members:
