@@ -1,0 +1,3 @@
+
+.. automodule:: magi.web
+   :members:
