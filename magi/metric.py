@@ -4,7 +4,7 @@
 """
 import uuid
 
-from sqlalchemy.types import DateTime, String, Unicode
+from sqlalchemy.types import DateTime, Unicode
 from sqlalchemy.dialects.postgresql import JSON, UUID
 from sqlalchemy.schema import Column, ForeignKey, ForeignKeyConstraint
 
@@ -23,7 +23,7 @@ class Agent(Base):
     #: to identify themselves.
     id = Column(UUID, primary_key=True, default=uuid.uuid4)
 
-    #: (:class:`basestring`) The agent name.
+    #: (:class:`str`) The agent name.
     name = Column(Unicode(80), nullable=False)
 
 
@@ -37,14 +37,14 @@ class Metric(Base):
                                  ondelete=CASCADE),
                       primary_key=True)
 
-    #: (:class:`basestring`) The metric unique identifier.
-    id = Column(String(80), primary_key=True)
+    #: (:class:`str`) The metric unique identifier.
+    id = Column(Unicode(80), primary_key=True)
 
-    #: (:class:`basestring`) The target id.
+    #: (:class:`str`) The target id.
     target_id = Column(Unicode(80), nullable=False)
 
-    #: (:class:`basestring`) The metric name.
-    metric_name = Column(String(40), nullable=False)
+    #: (:class:`str`) The metric name.
+    metric_name = Column(Unicode(40), nullable=False)
 
     #: (:class:`datetime.datetime`) The updated time.
     updated_at = Column(DateTime, nullable=False)
@@ -60,13 +60,13 @@ class Log(Base):
     #: (:class:`uuid.UUID`) The :attr:`Agent.id`.
     agent_id = Column(primary_key=True)
 
-    #: (:class:`basestring`) The :attr:`Metric.id`.
+    #: (:class:`str`) The :attr:`Metric.id`.
     metric_id = Column(primary_key=True)
 
     #: (:class:`datetime.datetime`) The log timestamp.
     timestamp = Column(DateTime, primary_key=True)
 
-    #: (:class:`basestring`) The log key.
+    #: (:class:`str`) The log key.
     key = Column(Unicode(256), nullable=True)
 
     #: (:class:`dict`) The log value.
