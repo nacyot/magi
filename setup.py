@@ -9,8 +9,7 @@ def readme():
 
 
 install_requires = [
-    'Flask',
-    'pysnmp'
+    'Flask'
 ]
 
 
