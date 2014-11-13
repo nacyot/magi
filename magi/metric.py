@@ -18,6 +18,8 @@ class Agent(Base):
     """Represent the individual Magi agent"""
     id = Column(postgresql.UUID, primary_key=True, default=uuid.uuid4)
 
+    __tablename__ = 'agents'
+
 
 class Metric(Base):
     """Represent the metrics sent from the Magi agent"""
@@ -31,6 +33,8 @@ class Metric(Base):
     metric_name = Column(types.String(40), nullable=True)
     updated_at = Column(types.DateTime, nullable=False)
     data = Column(postgresql.JSON, nullable=False)
+
+    __tablename__ = 'metrics'
 
 
 class Log(Base):
@@ -49,3 +53,5 @@ class Log(Base):
         ),
         {}
     )
+
+    __tablename__ = 'logs'
