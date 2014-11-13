@@ -10,7 +10,8 @@ def readme():
 
 install_requires = [
     'Flask',
-    'SQLAlchemy'
+    'SQLAlchemy',
+    'click'
 ]
 
 
@@ -25,6 +26,9 @@ setup(
     license='AGPLv3 or later',
     packages=find_packages(),
     install_requires=install_requires,
+    entry_points={
+        'console_scripts': ['magi = magi.cli:cli'],
+    },
     classifiers=[
         'Development Status :: 1 - Planning',
         'Environment :: Web Environment',
