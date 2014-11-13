@@ -1,0 +1,11 @@
+{
+  "name": "magi-web",
+  "dependencies": {
+    "jquery": "*",
+    "jquery-ui": "*",
+    "bootstrap": "*",
+    "font-awesome": "*",
+    "admin-lte": "*",
+    "chartjs": "*"
+  }
+}
