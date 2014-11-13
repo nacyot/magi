@@ -4,8 +4,12 @@
 """
 from flask import Flask, render_template
 
+from .db import setup_session
+
 
 app = Flask(__name__)
+
+setup_session(app)
 
 
 @app.route('/')
