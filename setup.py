@@ -16,6 +16,8 @@ setup(
     url='https://github.com/smartstudy/magi',
     author='Jihyeok Seo',
     author_email='me@limeburst.net',
+    maintainer='SMARTSTUDY D9',
+    maintainer_email='d9@smartstudy.co.kr',
     license='MIT',
     zip_safe=False,
     packages=['magi', 'magi.web'],
