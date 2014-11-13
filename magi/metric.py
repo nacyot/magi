@@ -16,15 +16,20 @@ CASCADE = 'CASCADE'
 
 class Agent(Base):
     """Magi agents."""
+    __tablename__ = 'agents'
 
-    #: (:class:`uuid.UUID`) The primary key UUID.
+    #: (:class:`uuid.UUID`) The agent unique identifier.
+    #: Each agent will choose appropriate id, and send it to the headquarter
+    #: to identify themselves.
     id = Column(UUID, primary_key=True, default=uuid.uuid4)
 
-    __tablename__ = 'agents'
+    #: (:class:`basestring`) The agent name.
+    name = Column(Unicode(80), nullable=False)
 
 
 class Metric(Base):
     """Metrics from Magi agents."""
+    __tablename__ = 'metrics'
 
     #: (:class:`uuid.UUID`) The :attr:`Agent.id`.
     agent_id = Column(ForeignKey(Agent.id,
@@ -32,17 +37,14 @@ class Metric(Base):
                                  ondelete=CASCADE),
                       primary_key=True)
 
-    #: (:class:`basestring`) The metric id.
+    #: (:class:`basestring`) The metric unique identifier.
     id = Column(String(80), primary_key=True)
 
     #: (:class:`basestring`) The target id.
     target_id = Column(Unicode(80), nullable=False)
 
-    #: (:class:`basestring`) The plugin name.
-    plugin_name = Column(String(80), nullable=True)
-
     #: (:class:`basestring`) The metric name.
-    metric_name = Column(String(40), nullable=True)
+    metric_name = Column(String(40), nullable=False)
 
     #: (:class:`datetime.datetime`) The updated time.
     updated_at = Column(DateTime, nullable=False)
@@ -50,11 +52,10 @@ class Metric(Base):
     #: (:class:`dict`) The target id.
     data = Column(JSON, nullable=False)
 
-    __tablename__ = 'metrics'
-
 
 class Log(Base):
-    """Metric raw data."""
+    """Raw data of each metrics"""
+    __tablename__ = 'logs'
 
     #: (:class:`uuid.UUID`) The :attr:`Agent.id`.
     agent_id = Column(primary_key=True)
@@ -79,5 +80,3 @@ class Log(Base):
         ),
         {}
     )
-
-    __tablename__ = 'logs'

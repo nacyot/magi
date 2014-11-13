@@ -6,8 +6,13 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 
-#: SQLAlchemy declarative base class.
-Base = declarative_base()
+__all__ = ['Base', 'Session']
+
+
+class Base(declarative_base()):
+    """SQLAlchemy declarative base class"""
+    __abstract__ = True
+
 
 #: SQLAlchemy session class.
 Session = sessionmaker()
