@@ -17,6 +17,7 @@ setup(
     author='Jihyeok Seo',
     author_email='me@limeburst.net',
     license='AGPLv3 or later',
+    zip_safe=False,
     packages=['magi', 'magi.web'],
     package_data={
         'magi.web': ['templates/*.*', 'static/*.*']
