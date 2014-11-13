@@ -5,6 +5,7 @@
    .. toctree::
       :maxdepth: 2
 
+      magi/cli
       magi/metric
       magi/orm
       magi/web
